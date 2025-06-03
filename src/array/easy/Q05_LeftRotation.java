@@ -33,6 +33,8 @@ public class Q05_LeftRotation {
             arr1[i] = arr1[i+1];
         }
         arr1[arr1.length-1] = temp;
+        // these above 4 steps for left rotation by 1
+
         return (arr1);
     }
 }
