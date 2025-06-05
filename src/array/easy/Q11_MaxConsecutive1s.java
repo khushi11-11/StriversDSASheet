@@ -21,22 +21,19 @@ public class Q11_MaxConsecutive1s {
     }
 
     static int result(int[] arr1) {
-        ArrayList<Integer> counter = new ArrayList<>();
-        int count=0;
+//        ArrayList<Integer> counter = new ArrayList<>();
+        int count=0, max = Integer.MIN_VALUE;
         for (int i = 0; i < arr1.length; i++) {
-            if(arr1[i]==1 && i!=arr1.length-1) {
+            if(arr1[i]==1 /*&& i!=arr1.length-1*/) {
                 count++;
-            } else if (arr1[i]==1 && i==arr1.length-1) {
-                count++;
-                counter.add(count);
+//            } else if (arr1[i]==1 && i==arr1.length-1) {
+//                count++;
+//                counter.add(count);
             } else {
-                counter.add(count);
+//                counter.add(count);
                 count=0;
             }
-        }
-        int max = Integer.MIN_VALUE;
-        for (int i : counter) {
-            if (max<i) max=i;
+            if (max<count) max=count;
         }
         return max;
     }
