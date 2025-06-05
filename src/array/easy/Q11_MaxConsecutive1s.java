@@ -1,6 +1,5 @@
 package array.easy;
 
-import java.util.ArrayList;
 
 /*
 COUNT MAXIMUM CONSECUTIVE ONE'S IN THE ARRAY~
@@ -23,7 +22,7 @@ public class Q11_MaxConsecutive1s {
     static int result(int[] arr1) {
 //        ArrayList<Integer> counter = new ArrayList<>();
         int count=0, max = Integer.MIN_VALUE;
-        for (int i = 0; i < arr1.length; i++) {
+        for (int i : arr1) {
             if(arr1[i]==1 /*&& i!=arr1.length-1*/) {
                 count++;
 //            } else if (arr1[i]==1 && i==arr1.length-1) {
