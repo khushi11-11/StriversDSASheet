@@ -14,7 +14,7 @@ Input Format: N = 5, k = 10, array[] = {2,3,5,1,9}
 Result: 3
 Explanation: The longest subarray with sum 10 is {2, 3, 5}. And its length is 3.
  */
-public class Q13_LongestSubarray {
+public class Q13_LongestSubarrayPositives {
     public static void main(String[] args) {
         int[] arr1 = {2,3,5};
         int[] arr2 = {2,3,5,1,9};
@@ -25,7 +25,7 @@ public class Q13_LongestSubarray {
         int k3 = 15;
         int k4 = 6;
         int len = arr1.length;
-        System.out.println(subarray(arr3, len, k3));
+        System.out.println(subarray(arr4, len, k4));
     }
     static int subarray(int[] ar, int len, int k) {
         ArrayList<Integer> sub = new ArrayList<>();
