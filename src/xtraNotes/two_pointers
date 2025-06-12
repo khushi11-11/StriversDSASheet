@@ -1,0 +1,30 @@
+TWO POINTERS
+
+- 210 leetcode problems
+- a problem solving pattern
+- initialize two ptrs, start & end
+- these move : towards each other OR away from each other OR in the same direction
+- reduces time complexity : O(n^2) -> O(n)
+
+*a pointer is a variable that represents an index of a data structure.
+
+# Converging Pointers :-
+    > the two ptrs starts from the two opposite ends of he data structure
+    > they move inward towards each other
+    > they adjust their positions based on certain conditions
+    > eg: checking if a string is palindrome or not (abcdcba)
+
+# Parallel Pointers :-
+    > both ptrs start from the same end, usually the beginning
+    > move in the same direction
+    > right ptr used to explore or find new info
+    > left ptr traverses the complete structure (track progress, maintain some constraint)
+    > variation: sliding window (commonly used to find subarrays or substrings)
+
+# Trigger-Based Pointers :-
+    > we move the first ptr independently, until it finds an element that matches certain condition
+    > after that we start traversing with the 2nd ptr for additional info, related to what the first pointer found
+
+WHEN TO USE?
+- used in linear structures
+- when question asks for a two pair value or a result that can be generated using the two values
