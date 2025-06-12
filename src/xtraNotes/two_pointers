@@ -1,6 +1,5 @@
 TWO POINTERS
 
-- 210 leetcode problems
 - a problem solving pattern
 - initialize two ptrs, start & end
 - these move : towards each other OR away from each other OR in the same direction
