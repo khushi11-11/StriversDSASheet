@@ -1,0 +1,63 @@
+SLIDING WINDOW~
+
+- Sliding Window is a technique used mainly for problems involving arrays or strings, where you're supposed to look at contiguous blocks (or "windows") of data and not single element.
+- Think of it like this: You're peeking at a window of size k in a long corridor (array). You don’t want to walk back and forth — instead, you slide the window forward one step at a time, reusing some of the work you've already done.
+
+WHEN TO USE IT?
+- Whenever you’re:
+  > Repeating the same calculation over subarrays of fixed or variable size.
+  > Asked to find max/min/sum/count of subarrays, substrings, or ranges.
+  > Want better than brute-force O(n²) and aim for O(n).
+- Use it whenever your task involves CONTIGUOUS elements, and you're repeating the same work across overlapping windows.
+
+THE CORE LOGIC~
+- You maintain a window of elements and slide it forward to avoid redundant work.
+- You carry forward the work you've already done in a “window” and just update it.
+
+ANALOGY TIME (AGAIN BECAUSE IT WORKS)~
+- Imagine you're carrying a tray of 3 teacups ([2, 4, 6] = total weight 12).
+- Now, one cup falls off (left side), and you place a new cup (right side, weight 3).
+- Do you lift all 3 and weigh them again? No!
+- You just subtract 2(first), and add 3(last) → new weight = 12 - 2 + 3 = 13.
+- That’s Sliding Window. You move the tray 1 step forward, not start over.
+
+TYPES~
+1. Fixed-Size Sliding Window =>
+- You’re told the size of the window, like “find the max sum of any subarray of size k”.
+- Pattern:
+    > Maintain a window of size k
+    > As you move forward, subtract the element going out, add the one coming in
+    > Usually involves 1 loop, no shrinking/growing
+- code structure :
+for (int i = 0; i < k; i++)
+    sum += arr[i]; // Initial window
+
+for (int i = k; i < arr.length; i++) {
+    sum += arr[i] - arr[i - k]; // Slide window
+}
+
+
+2. Variable Size Window =>
+- You don’t know the window size in advance. You have to adjust it dynamically based on a condition.
+- Pattern:
+    > Use two pointers: start and end
+    > Expand the window by moving end
+    > Shrink the window by moving start — based on a condition
+- code structure :
+int start = 0;
+for (int end = 0; end < arr.length; end++) {
+    // expand the window: add arr[end]
+
+    while (condition is violated) {
+        // shrink the window: remove arr[start]
+        start++;
+    }
+
+    // now the window [start...end] is valid
+}
+
+
+
+
+✨ IN SUMMARY — “WHEN + WHY” ANSWER FOR INTERVIEWS:
+“I use the Sliding Window technique when I need to process or analyze subarrays/substrings of a given size (fixed or variable), and want to do it more efficiently by avoiding repeated calculations. It brings down time complexity from O(n²) to O(n) by maintaining a running window and updating it incrementally rather than recomputing everything.”
