@@ -17,19 +17,45 @@ Explanation: All 3 zeroes are moved to the end and the order of the other elemen
 public class Q07_ZeroesToEnd {
     public static void main(String[] args) {
         int[] arr = {0, 0, 0, 1, 3, -2};
-        moveZroes(arr);
-        System.out.println(Arrays.toString(arr));
+        bruteForce(arr);
+        int[] arr1 = {0, 1, 4, 0, 5, 2};
+        optimal(arr1);
     }
 
-    static void moveZroes(int[] arr) {
-        for (int i = 0; i < arr.length-1; i++) {
-            if (arr[i]==0){ // when a 0 is encountered in the array
-                while (arr[i]!=0) { // for continuous 0s in array
-                    for (int j = i; j < arr.length - 1; j++)
-                        arr[j] = arr[j + 1]; // left rotating the array in loop
-                    arr[arr.length - 1] = 0; // updating last value with 0 -why?- moving the 0 to end
-                }
+    static void bruteForce(int[] arr) {
+        int[] zero = new int[arr.length];
+        int j=0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]!=0) {
+                zero[j]=arr[i];
+                j++;
             }
         }
+        System.out.println(Arrays.toString(zero));
+    }
+    static void optimal(int[] arr) {
+        /*
+        use 2 ptrs = left and right
+        left for index-0, right for index-1
+        if left=0 : swap their vals
+            > if left is still 0 after swapping : incr right
+            > if left is non-zero : incr both the ptrs by 1
+        else : no swapping & incr both the ptrs by 1
+         */
+        int left=0, right=1;
+        while (right < arr.length) {
+            if (arr[left]==0) {
+                int temp=arr[left];
+                arr[left]=arr[right];
+                arr[right]=temp;
+            }
+            if (arr[left]==0) {
+                right++;
+            } else {
+                left++;
+                right++;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }
