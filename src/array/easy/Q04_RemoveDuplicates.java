@@ -16,8 +16,11 @@ Explanation: Total number of unique elements are 3, i.e[1,2,3] and Therefore ret
 public class Q04_RemoveDuplicates {
     public static void main(String[] args) {
         int[] arr1 = {1,1,2,2,2,3,3};
-        int[] arr2 = {};
+        int[] arr2 = {1,1,2};
+        int[] arr3 = {0,0,1,1,1,2,2,3,3,4};
         System.out.println(removeDuplicates(arr1));
+
+//        System.out.println(nonDuplicates(arr3));
     }
 
     static String removeDuplicates(int[] arr) {
@@ -37,6 +40,20 @@ public class Q04_RemoveDuplicates {
         }
         return Arrays.toString(arr);
     }
+
+//    static int nonDuplicates(int[] nums) {
+//        int s=0;
+////        s is like a "slow pointer" — it tracks where the next unique number should go.
+////        i is a "fast pointer" — it scans through the array to check for new unique numbers.
+//        for (int i=1; i<nums.length; i++) {
+//            if (nums[i]!=nums[s]) {
+//                s++;
+//                nums[s]=nums[i];
+//                nums[i]=0;
+//            }
+//        }
+//        return s+1;
+//    }
 }
 
 
