@@ -23,7 +23,7 @@ public class Q11_MaxConsecutive1s {
 //        ArrayList<Integer> counter = new ArrayList<>();
         int count=0, max = Integer.MIN_VALUE;
         for (int i : arr1) {
-            if(arr1[i]==1 /*&& i!=arr1.length-1*/) {
+            if(i==1 /*&& i!=arr1.length-1*/) {
                 count++;
 //            } else if (arr1[i]==1 && i==arr1.length-1) {
 //                count++;
@@ -32,7 +32,7 @@ public class Q11_MaxConsecutive1s {
 //                counter.add(count);
                 count=0;
             }
-            if (max<count) max=count;
+            max = Math.max(count, max);
         }
         return max;
     }
