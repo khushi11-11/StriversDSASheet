@@ -20,26 +20,27 @@ public class Q12_SingleNumber {
         int[] arr1 = {2,2,1};
         int[] arr2 = {4,1,2,1,2};
         int[] arr3 = {1, 2, 2, 4, 3, 1, 4};
-        int ans = bruteForce(arr1);
-        int ans2 = betterApproach(arr2);
+//        int ans = bruteForce(arr1);
+//        int ans2 = betterApproach(arr2);
         int ans3 = optimalApproach(arr3);
-        System.out.println("Brute Force Approach= " + ans);
-        System.out.println("Better Approach= " + ans2);
+//        System.out.println("Brute Force Approach= " + ans);
+//        System.out.println("Better Approach= " + ans2);
         System.out.println("Optimal Approach= " + ans3);
     }
 
-    static int bruteForce(int[] arr) {
+    static int bruteForce(int[] arr) { // O(n^2)
         for (int i : arr) {
             int count=0;
             for (int j : arr) {
                 if (j==i) count++;
+                if (count==2) break;
             }
             if (count==1) return i;
         }
         return -1;
     }
 
-    static int betterApproach(int[] arr) {
+    static int betterApproach(int[] arr) { // O(2n)
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i : arr) {
             int val = map.getOrDefault(i, 0);
@@ -48,19 +49,19 @@ public class Q12_SingleNumber {
             // val=val+1 -why?- when array element exists in the map it will give the val 1 -> incremented by 1 = 2 : indicating duplicate occurrence
             // when the array element is not present in map the def val which is 0 is used -> incr by 1 = 1
         }
-        // has map stores unique value that means when we itrate over the array, every value will be checked in the hash map that we have defined and then a value is found while trading over array that means if an element has already been recorded into map from Arey, the value will be 1+1 as it exists in Mac, which means the value is one and when we put it again in the map, the value will be updated by incrementing it by one and if the value from RA or the element from array does not already exist in the map, then the default value which is zero will be used to replace the value of that element in the hash map, which will be 0+ one is equal to 1
+        // hash map stores unique value that means when we iterate over the array, every value will be checked in the hash map that we have defined and then a value is found while trading over array that means if an element has already been recorded into map from Array, the value will be 1+1 as it exists in map, which means the value is one and when we put it again in the map, the value will be updated by incrementing it by one and if the value or the element from array does not already exist in the map, then the default value which is zero will be used to replace the value of that element in the hash map, which will be 0+1 = 1
 
         for (Map.Entry<Integer, Integer> x : map.entrySet()) {
             if (x.getValue()==1) return x.getKey();
         }
-        // just like int works for array of in type, Map.Entry works for HashMap
+        // just like int works for array of int type, Map.Entry works for HashMap
         return -1;
     }
 
-    static int optimalApproach(int[] arr) {
+    static int optimalApproach(int[] arr) { // O(n)
         int xor=0;
         for (int i : arr) {
-            xor = xor^i;
+            xor ^= i;
         }
         return xor;
     }
