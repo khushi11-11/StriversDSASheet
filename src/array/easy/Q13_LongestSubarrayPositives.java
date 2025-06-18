@@ -44,4 +44,6 @@ public class Q13_LongestSubarrayPositives {
         }
         return sub.size();
     }
+
+//    for optimal solution refer to the daily pkg -> ./array/daily/
 }
