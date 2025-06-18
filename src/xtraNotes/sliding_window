@@ -57,7 +57,7 @@ for (int end = 0; end < arr.length; end++) {
 }
 
 
-
+** can't be used when array has negatives
 
 ✨ IN SUMMARY — “WHEN + WHY” ANSWER FOR INTERVIEWS:
 “I use the Sliding Window technique when I need to process or analyze subarrays/substrings of a given size (fixed or variable), and want to do it more efficiently by avoiding repeated calculations. It brings down time complexity from O(n²) to O(n) by maintaining a running window and updating it incrementally rather than recomputing everything.”
