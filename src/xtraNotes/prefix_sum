@@ -1,0 +1,12 @@
+WHAT IS A PREFIX SUM?
+- It’s just the running sum of elements as you move through the array.
+- So for: nums = [1, 2, 3, -2, 5], The prefix sums at each index are:
+
+Index	    Element	    Prefix Sum
+0	        1	        1
+1	        2	        3 (1+2)
+2	        3	        6 (1+2+3)
+3	        2	        4 (6 + -2)
+4	        5	        9 (4 + 5)
+
+We just keep adding as we move forward.
