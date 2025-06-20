@@ -1,4 +1,4 @@
-package array.daily;
+package array.medium;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,50 +6,37 @@ import java.util.List;
 /*
 SPIRAL TRAVERSAL OF MATRIX~
 Problem Statement: Given a Matrix, print the given matrix in spiral order.
-input1:
-int[][] matrix = {
-    {1, 2, 3},
-    {4, 5, 6},
-    {7, 8, 9}
-};
-output1:
-[1, 2, 3, 6, 9, 8, 7, 4, 5]
-TRAVERSAL PATTERN:
-We move in 4 directions:
-➡️ Left to Right (top row)
-⬇️ Top to Bottom (right column)
-⬅️ Right to Left (bottom row)
-⬆️ Bottom to Top (left column)
-Then shrink the boundary and repeat!
+Example 1:
+Input: Matrix[][] = { { 1, 2, 3, 4 },
+		      { 5, 6, 7, 8 },
+		      { 9, 10, 11, 12 },
+	              { 13, 14, 15, 16 } }
+Output: 1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10.
+Explanation: The output of matrix in spiral form.
+
+Example 2:
+Input: Matrix[][] = { { 1, 2, 3 },
+	              { 4, 5, 6 },
+		      { 7, 8, 9 } }
+Output: 1, 2, 3, 6, 9, 8, 7, 4, 5.
  */
-public class SpiralMatrix {
+public class Q13_SpiralMatrix {
     public static void main(String[] args) {
         int[][] matrix1 = {
+                {1,  2,  3,  4},
+                {5,  6,  7,  8},
+                {9, 10, 11, 12},
+                {13, 14, 15, 16}
+        };
+        int[][] matrix2 = {
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}
-        }; // perfect square
-        int[][] matrix2 = {
-                {1},
-                {2},
-                {3},
-                {4}
-        }; // single column : won't work if second 'if-cond' is removed
-        int[][] matrix3 = {
-                {1,  2,  3,  4},
-                {5,  6,  7,  8},
-                {9, 10, 11, 12}
-        }; // rectangular
-        int[][] matrix4 = {
-                {1, 2}
-        }; // single row : won't work if first 'if-cond' is removed
+        };
 
         solution(matrix1);
         solution(matrix2);
-        solution(matrix3);
-        solution(matrix4);
     }
-
     static void solution(int[][] nums) {
         int top=0; // element of top row
         int right=nums[0].length-1; // last (col) element of a row
@@ -106,20 +93,3 @@ public class SpiralMatrix {
          */
     }
 }
-
-/*
-The inner if-conds may be redundant, as the loop itself already says:
-while (top <= bottom && left <= right)
-*Not redundant — they're safety nets for mid-loop boundary changes.*
-
-The loop condition ensures: “The start of a spiral cycle is safe.”
-But the inner directions may still become invalid midway — because you're shrinking the boundaries inside the loop.
-
-At the start of the loop, top <= bottom and left <= right are true.
-But then... you do:
-top++ and right--
-Which means:
-top may now be > bottom
-or left > right
- */
-
