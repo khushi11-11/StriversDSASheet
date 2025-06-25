@@ -20,12 +20,14 @@ public class Q08_NextPermutation {
         int[] arr1 = {1,3,2};
         int[] arr2 = {3,2,1};
         int[] arr3 = {1,3,5,4,2};
+        int[] arr4 = {5,4,3,2,1};
         bruteForce(arr3);
     }
 
     static void bruteForce(int[] nums) {
         int i = nums.length-2; // start from second last element
-        while (i>=0 && nums[i]>=nums[i+1]) i--; // finding i, the breakpoint
+        while (i>=0 && nums[i]>=nums[i+1])
+            i--; // finding i, the breakpoint
         // swapping logic, find number which is smaller to its right one -> then swap it with the smallest number of those that are greater than it
         if (i!=-1) {
             // Among the numbers greater than i, we want the smallest of them
