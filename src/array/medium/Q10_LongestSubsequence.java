@@ -20,9 +20,9 @@ public class Q10_LongestSubsequence {
         int[] arr2 = {3, 8, 5, 7, 6};
         int[] arr3 = {9, 1, -3, 2, 4, 8, 3, -1, 6, -2, -4, 7};
 
-        int[] test1 = {10, 30, 20, 21, 22, 50};
-        int[] test2 = {1, 2, 3, 4, 5, 100, 200, 3, 2, 1};
-        int[] test3 = {5, 100, 4, 3, 2, 1, 6};
+        int[] test1 = {10, 30, 20, 21, 22, 50}; // unordered
+        int[] test2 = {1, 2, 3, 4, 5, 100, 200, 3, 2, 1}; // duplicates
+        int[] test3 = {5, 100, 4, 3, 2, 1, 6}; // gapped
         optimal(test1);
         optimal(test2);
         optimal(test3);
