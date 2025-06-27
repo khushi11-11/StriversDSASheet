@@ -20,6 +20,7 @@ public class Q09_UnionOfSortedArrays {
         int[] arr2 = {1, 2, 7};
 
         System.out.println(union(arr1, arr2));
+        System.out.println(union1(arr1,arr2));
     }
 
     // ek hash set bna lo -> usme array1 ki values put krdo -> phir arr2 ki seq me
@@ -35,6 +36,12 @@ public class Q09_UnionOfSortedArrays {
         HashSet<Integer> union = new HashSet<>(arr);
         // removes duplicates
         // can use instead a for loop or simply union.addAll(arr);
+        return union;
+    }
+    static HashSet<Integer> union1(int[] a1, int[] a2) {
+        HashSet<Integer> union = new HashSet<>();
+        for (int i : a1) union.add(i);
+        for (int i : a2) union.add(i);
         return union;
     }
 }
