@@ -31,20 +31,20 @@ public class Q14_LongestSubarrayPositivesNegatives {
             sum += arr[i];
 
             // when prefix = target sum
-            if (sum == k) maxLen = i+1;
+            if (sum == k) maxLen = i+1; // *prefix is target
 
             // sum-k = val which can be subtracted from the prefix sum to obtain target sum
             // if hashmap contains it -> it will become the prev_idx
             // prev_idx calculated for max length subarray
-            if (map.containsKey(sum-k)) {
+            if (map.containsKey(sum-k)) { // *in between
                 int prev_idx = map.get(sum-k);
                 // gets index value, fetch the index where that prefix sum occurred
-                // this index = start of the subarray whose sum, ending at current index i, equals k.
+                // this index(+1) = start of the subarray whose sum, ending at current index i, equals k(target).
                 maxLen = Math.max(maxLen, i-prev_idx);
                 // length fom current to the index where subarray started that sums up to give target sum
             }
 
-            if (!map.containsKey(sum)) {
+            if (!map.containsKey(sum)) { // *if none of the above
                 map.put(sum, i);
             }
         }
