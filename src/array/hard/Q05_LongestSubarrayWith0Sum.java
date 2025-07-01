@@ -35,9 +35,11 @@ public class Q05_LongestSubarrayWith0Sum {
         int[] test1 = {9, -3, 3, -1, 6, -5};
         int[] test2 = {6, -2, 2, -8, 1, 7, 4, -10};
         int[] test3 = {1, 0, -5};
-//        solution(test1);
-//        optimal(test2);
+        int[] test4 = {1, 3, -5, 6, -2};
+        solution(test1);
+        optimal(test2);
         optimal(test3);
+        optimal(test4);
     }
 
     static void solution(int[] nums) {
