@@ -23,20 +23,21 @@ public class Q06_CountSubarraysWithXORk {
         int[] test2 = {5,6,7,8,9};
         int k2 = 5;
         solution(test1, k1);
+        solution(test2, k2);
     }
     static void solution(int[] nums, int k) {
         int count=0, xor=0;
         HashMap<Integer,Integer> map = new HashMap<>();
         // instead of putting index, we will put freq bcoz we want to know how many times certain value has occurred and not where it occurred
-        for (int i = 0; i < nums.length; i++) {
+        for (int num : nums) {
             // xor^nums[i]=k <=> nums[i]=xor^k
-            xor ^= nums[i];
+            xor ^= num;
             // counter incremented
             if (xor == k) count++;
             //  if there were multiple (and not just 1) prefixes giving the required XOR
-            if (map.containsKey(xor^k)) count += map.getOrDefault(xor ^ k, 0);
+            if (map.containsKey(xor ^ k)) count += map.getOrDefault(xor ^ k, 0);
             // store how many times this XOR value has occurred so far, instead of storing index
-            if (!map.containsKey(xor^k))map.put(xor, map.getOrDefault(xor, 0) + 1);
+            if (!map.containsKey(xor ^ k)) map.put(xor, map.getOrDefault(xor, 0) + 1);
         }
         System.out.println(count);
     }

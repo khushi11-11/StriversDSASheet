@@ -56,8 +56,34 @@ public class Q08_MergeSortedArrays {
         System.out.println(Arrays.toString(nums2));
     }
 
-    // without using extra space — also known as the Gap Method (inspired by Shell Sort), smart pointer jumps.
-    static void optimal(int[] nums1, int[] nums2) {
-
-    }
+//    // without using extra space — also known as the Gap Method (inspired by Shell Sort), smart pointer jumps.
+//    static void optimal(int[] nums1, int[] nums2) {
+//        // gap method
+//        // Treat both arrays as one virtual array of size n + m.
+//        int n = nums1.length, m = nums2.length;
+//
+//        /*
+//         gap equal to half of the total elements (rounded up)
+//         Shell Sort: controls how far apart (if gap=4, one element will be 0,1,2,3 other will be 4,5,6,7) the two comparing elements are
+//	     Why ceil? Because if n+m is odd, gap needs to be rounded up
+//         */
+//        int gap = (int) Math.ceil((n + m) / 2.0); // 0 1 2 3 '4' 5 6 7
+//
+//
+//        while (gap > 0) { // Each pass brings larger elements toward the right and vice versa
+//            int left=0, right=gap; // comparison pointers
+//
+//            while (right < (n+m)) {
+//                int val1 = getValue(nums1, nums2, left, n);
+//                int val2 = getValue(nums1, nums2, right, n);
+//                if (val1 > val2) {
+//
+//                }
+//            }
+//
+//        }
+//    }
+//
+//    static int getValue(int[] nums1, int[] nums2, int right, int n) {
+//    }
 }
