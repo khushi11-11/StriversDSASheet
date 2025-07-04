@@ -33,7 +33,7 @@ public class Q09_FindMissingAndRepeating {
         int[] ans = new int[2]; // A: repeats twice, B: missing one
         HashMap<Integer,Integer> map = new HashMap<>();
 
-        // Step 1: Create a frequency map from 1 to N initialized to 0
+        // Step 1: Create a frequency map from 1 to N with values initialized to 0
         int i;
         for (i = 1; i <= n; i++) {
             map.put(i, 0); // initialise hashmap with vals from 1 to N with freq not yet calculated to 0
