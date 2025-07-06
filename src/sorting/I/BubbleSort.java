@@ -17,10 +17,10 @@ public class BubbleSort {
         bubble(test2);
     }
     static void bubble(int[] nums) {
-        int j = nums.length;
+        int j = nums.length-1;
         int flag=0;
         while (j>0) {
-            for (int i = 0; i < j-1; i++) { // loop represents one pass
+            for (int i = 0; i < j; i++) { // loop represents one pass
                 if (nums[i] > nums[i+1]) {
                     int temp = nums[i];
                     nums[i] = nums[i+1];
