@@ -1,6 +1,8 @@
 package array.easy;
 
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /*
 REMOVE DUPLICATES IN-PLACE FROM SORTED ARRAY~
@@ -19,6 +21,7 @@ public class Q04_RemoveDuplicates {
         int[] arr2 = {1,1,2};
         int[] arr3 = {0,0,1,1,1,2,2,3,3,4};
         System.out.println(removeDuplicates(arr1));
+//        brute(arr1);
 
 //        System.out.println(nonDuplicates(arr3));
     }
@@ -27,7 +30,7 @@ public class Q04_RemoveDuplicates {
         for (int i = 0; i < arr.length-1; i++) {
             for (int j = 0; j < arr.length-1; j++) {
 //          comparing to all the array elements
-                if (arr[i] == arr[j]) {
+                if (arr[j] == arr[i]) {
 //              when any array element is found to be equal to the current array val => duplicate
                     arr[j]=0;
                 }
@@ -54,6 +57,14 @@ public class Q04_RemoveDuplicates {
 //        }
 //        return s+1;
 //    }
+     static void brute(int[] arr) {
+         // Pseudo
+         Set<Integer> set = new LinkedHashSet<>();
+         for(int num : arr) set.add(num);
+         int i = 0;
+         for(int num : set) arr[i++] = num;
+         System.out.println(Arrays.toString(arr));
+     }
 }
 
 
