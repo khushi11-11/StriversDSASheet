@@ -25,10 +25,9 @@ public class Q07_ZeroesToEnd {
     static void bruteForce(int[] arr) {
         int[] zero = new int[arr.length];
         int j=0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i]!=0) {
-                zero[j]=arr[i];
-                j++;
+        for (int k : arr) {
+            if (k != 0) {
+                zero[j++] = k;
             }
         }
         System.out.println(Arrays.toString(zero));
