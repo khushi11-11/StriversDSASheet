@@ -36,7 +36,7 @@ public class Q07_ZeroesToEnd {
         /*
         use 2 ptrs = left and right
         left for index-0, right for index-1
-        if left=0 : swap their vals
+        if arr[left]=0 : swap their vals
             > if left is still 0 after swapping : incr right
             > if left is non-zero : incr both the ptrs by 1
         else : no swapping & incr both the ptrs by 1

@@ -28,7 +28,8 @@ public class BubbleSort {
                 }
             }
             if (flag == 1) {
-                j--; // size decrements after a pass that has gone through swap :: if no swaps occurred > array=sorted > break loop
+                j--;
+                // size decrements after a pass that has gone through swap :: if no swaps occurred > array=sorted > break loop
                 flag=0;
             } else {
                 break;
