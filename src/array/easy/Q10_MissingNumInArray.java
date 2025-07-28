@@ -18,6 +18,8 @@ public class Q10_MissingNumInArray {
         int ans = find(arr1, n);
         System.out.println(ans);
         System.out.println(find(arr2, m));
+//        optimalMath(arr1);
+//        optimalMath(arr2);
     }
 
 //    count occurrence of number from 1 to N
@@ -30,7 +32,7 @@ public class Q10_MissingNumInArray {
                 if (a[i] != i) return i;
             }
         } else {
-//        if first element is not 0 => a[0] must be 1, i.e., i+1 (i=0)
+        //  if first element is not 0 => a[0] must be 1, i.e., i+1 (i=0)
             for (int i = 0; i < n; i++) {
                 if (a[i] != i+1) return i+1;
             }
@@ -39,4 +41,13 @@ public class Q10_MissingNumInArray {
         return -1;
     }
 
+//    static void optimalMath(int[] a) {
+////        follows the total sum method, subtracts actual sum from desired sum
+////        works great when 0 is in the array
+//        int n = a.length;
+//        int total = n*(n+1)/2;
+//        int sum=0;
+//        for (int i = 0; i < n-1; i++) sum += i;
+//        System.out.println(total-sum);
+//    }
 }
