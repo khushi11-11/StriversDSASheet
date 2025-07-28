@@ -1,4 +1,7 @@
 package array.easy;
+
+import java.util.Arrays;
+
 /*
 FIND THE MISSING NUMBER IN AN ARRAY~
 Problem Statement: Given an integer N and an array of size N-1 containing N-1 numbers between 1 to N. Find the number(between 1 to N), that is not present in the given array.
@@ -8,22 +11,32 @@ Explanation: nums contains 0, 1, 2, 3, 4 thus leaving 5 as the only missing numb
  */
 public class Q10_MissingNumInArray {
     public static void main(String[] args) {
-        int[] arr1 = {0, 2, 3, 1, 4};
+        int[] arr1 = {0, 2, 1, 4};
+        int[] arr2  = {2,4,5,1};
         int n = arr1.length;
+        int m= arr2.length;
         int ans = find(arr1, n);
         System.out.println(ans);
+        System.out.println(find(arr2, m));
     }
 
 //    count occurrence of number from 1 to N
 //    only one number is missing
     static int find(int[] a, int n) {
-        while (n!=0) {
-            int count=0;
-            for (int i = 0; i < n; i++) {
-                if (n==a[i]) count++;
+        Arrays.sort(a);
+        if (a[0]==0) {
+        //  index starts from 0
+            for (int i = 1; i < n; i++) {
+                if (a[i] != i) return i;
             }
-            if (count==0) return n;
+        } else {
+//        if first element is not 0 => a[0] must be 1, i.e., i+1 (i=0)
+            for (int i = 0; i < n; i++) {
+                if (a[i] != i+1) return i+1;
+            }
         }
+
         return -1;
     }
+
 }
